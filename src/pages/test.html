@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>.capture事件修饰符</title>
+    <style type="text/css">
+        * {
+            margin: 0 auto;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        div {
+            width: 100px;
+        }
+
+        #obj1 {
+            background: deeppink;
+        }
+
+        #obj2 {
+            background: pink;
+        }
+
+        #obj3 {
+            background: hotpink;
+        }
+
+        #obj4 {
+            background: #ff4225;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <input v-model.trim="mes" @change="fn($el.prototype)"/>
+</div>
+
+<script type="text/javascript">
+    var content = new Vue({
+        el: "#content",
+        data: {
+            id: '',
+            selected: '',
+            mes: '',
+            person:{
+                name:'mingbai',
+                age:'12',
+            }
+        },
+        watch:{
+            mes:function(val){
+             console.log(this.mes)
+            }
+        },
+        mounted(){
+           function example(){
+               this.id='sdf'
+           }
+           example.prototype=this.person;
+           var obj=new example();
+            console.log(obj)
+            for(val in obj){
+                if(obj.hasOwnProperty(val)){
+                    console.log(val)
+                }
+                // console.log(val)
+            }
+            // for(val of this.person){
+            //     console.log(val)
+            // }    
+        },
+        methods: {
+            doc: function () {
+                this.id = event.currentTarget.id;
+                console.log(this.id)
+            },
+            fn: function (a,b) {
+            return a+b;               
+            }
+        }
+    })
+</script>
+</body>
+</html>

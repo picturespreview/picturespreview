@@ -1,0 +1,11 @@
+{
+    "name": "woods",
+    "password":"123456",
+    "titleItem":[
+        {"name":"首页","key":"loginPage"},
+        {"name":"商品目录","key":"homePage"},
+        {"name":"图片预览","key":"updataPage"},
+        {"name":"商品目录","key":"homePage"},
+        {"name":"商品目录","key":"homePage"}
+    ]
+}
